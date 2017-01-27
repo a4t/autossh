@@ -1,0 +1,17 @@
+networks: {}
+version: '2.0'
+
+services:
+  autossh:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+      - ~/.ssh/id_rsa:/home/proxy/.ssh/id_rsa
+    ports:
+      - "9998:9998"
+    environment:
+      - TUNNEL_USER=moge
+      - TUNNEL_HOST=mogemoge.com
+      - REMOTE_HOST=hogehoge.com
+      - REMOTE_PORT=3306
